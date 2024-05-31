@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+/* FORM CSS */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {color: #999; font-size: 16px; font-weight: 400;}/* WebKit, Blink, Edge */
+input:-moz-placeholder, textarea:-moz-placeholder {color: #999; font-size: 16px; font-weight: 400; opacity: 1;} /* Firefox 4 to 18 */
+input::-moz-placeholder, textarea::-moz-placeholder {color: #999; font-size: 16px; font-weight: 400; opacity: 1;} /* Firefox 19+ */
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {color: #999 !important; font-size: 16px !important; font-weight: 400 !important;} /* Internet Explorer 10-11 */
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {color: #999; font-size: 16px; font-weight: 400;} /* Microsoft Edge */
+input::placeholder, textarea::placeholder {color: #999; font-size: 16px; font-weight: 400;} /* Most modern browsers support this now */
+textarea {
+	width: 100%;
+	border: 1px solid #ddd;
+	background: #fff;
+	box-sizing: border-box;
+	resize: none;
+    transition: all .3s;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+    color: #222;
+}
+textarea::-webkit-scrollbar {-webkit-appearance: none; width: 15px;}
+textarea::-webkit-scrollbar-thumb {background-color: #c1c1c1; border-left: 6px solid #fff; border-top: 6px solid #fff; border-right: 6px solid #fff; border-radius: 8px;}
+textarea:focus {outline: none; border-color: var(--admin-color1);}
+select {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    background: none;
+}
+select::-ms-expand {display: none;}
+input {border: none; background: none; border-radius: 0; font-size: 16px; color: #222; box-sizing: border-box;}
+input::-ms-clear, input::-ms-reveal {display: none;}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {display: none;}
+.appearance {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+
+/* TEXTAREA */
+.textarea_box {position: relative;}
+.textarea_box .char_cnt {position: absolute; right: 12px; bottom: 16px; font-size: 14px; color: #999; background: #fff;}
+.textarea_box .char_cnt b {font-size: 14px; font-weight: 500; color: #666;}
+.textarea_box + p.txt {padding-top: 10px; font-size: 14px; color: #999;}
+
+
+/* 인풋 */
+.input_box {position: relative; height: 50px;}
+.input_box span {position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 16px; color: #999;}
+.input_box.input_box2 input {text-align: right; padding-left: 50px;}
+.input_box input {width: 100%; height: 100%; display: block; padding: 0 12px; border: 1px solid #ddd; border-radius: 5px; background: #fff; transition: all .3s;}
+.input_box input:focus {border-color: var(--admin-color1);}
+.input_box input.wrong_input {border-color: var(--admin-color3); transition: all .3s;}
+.input_box input.wrong_input:focus {border-color: var(--admin-color1);}
+.input_box .char_cnt {position: absolute; left: auto; right: 26px; top: 50%; transform: translateY(-50%); font-size: 14px; color: #666;}
+.input_box .char_cnt b {font-weight: inherit; color: #222;}
+.input_box .char_cnt + input {padding-right: 70px;}
+.input_box.button_input button {position: absolute; right: 10px; top: 50%; transform: translateY(-50%); padding: 0 12px; line-height: 30px; font-size: 14px; font-weight: 400; color: #666; border-radius: 5px; background: #f8f8f8; border: 1px solid #ddd; transition: all .3s;}
+.input_box.button_input input:focus + button {border-color: var(--admin-color1); color: var(--admin-color1); background: #fff;}
+.input_box.button_input.on input{border-color: var(--admin-color1);}
+.input_box.button_input.on button{border-color: var(--admin-color1); color: var(--admin-color1); background: #fff;}
+.input_box.pwd_input .view_pwd {position: absolute; right: 24px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: url('../images/ic_view_pwd1.png') no-repeat 50% 50%/100%; text-indent: -9999px; transition: all .3s;}
+.input_box.pwd_input input[type="text"] + .view_pwd {background-image: url('../images/ic_view_pwd2.png');} 
+.txt_err {display: block; padding-top: 12px; font-size: 14px; font-weight: 400; color: var(--admin-color3);font-style: normal;}
+
+
+.chk_rdo_wrap {display: flex; align-items: center; padding: 13px 0; min-height: 50px; flex-wrap: wrap;}
+.chk_rdo_wrap > div {min-width: 200px;}
+.chk_rdo_wrap + div {margin-top: 8px;}
+.chk_rdo_wrap.chk_rdo_wrap2 > div {min-width: auto; flex: 1 0 0;}
+.chk_rdo_wrap.chk_rdo_wrap3 {display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; row-gap: 16px;}
+.chk_rdo_wrap.chk_rdo_wrap3 > div {min-width: auto;}
+/* 체크박스 */
+.chk_box1 {display: inline-block; vertical-align: top; position: relative;}
+.chk_box1 input[type="checkbox"] + label {position: relative; padding-left: 28px; font-size: 16px; font-weight: 400; color: #666; cursor: pointer; display: inline-block; vertical-align: top; cursor: pointer;}
+.chk_box1 input[type="checkbox"] + label:before {content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; border: 1px solid #ddd; background: transparent; border-radius: 2px; transition: all .3s;}
+.chk_box1 input[type="checkbox"] + label:after {content: ''; position: absolute; left: 5px; top: 50%; width: 6px; height: 9px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); transition: all .1s; margin-top: -6px; opacity: 0; border-radius: 1px;}
+.chk_box1 input[type="checkbox"]:checked + label:before {background: var(--admin-color1); border-color: var(--admin-color1);}
+.chk_box1 input[type="checkbox"]:checked + label:after {opacity: 1;}
+.chk_box2 {display: inline-block; vertical-align: top; position: relative; text-align: left;}
+.chk_box2 input[type="checkbox"] + label {position: relative; width: 24px; height: 24px; cursor: pointer; display: block; cursor: pointer; text-indent: -9999px;}
+.chk_box2 input[type="checkbox"] + label:before {content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);  width: 16px; height: 16px; border: 1px solid #ddd; background: transparent; border-radius: 2px; transition: all .3s;}
+.chk_box2 input[type="checkbox"] + label:after {content: ''; position: absolute; left: 9px; top: 50%; transform: translateY(-50%); width: 6px; height: 9px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); transition: all .1s; margin-top: -6px; opacity: 0; border-radius: 1px;}
+.chk_box2 input[type="checkbox"]:checked + label:before {background: var(--admin-color1); border-color: var(--admin-color1);}
+.chk_box2 input[type="checkbox"]:checked + label:after {opacity: 1;}
+.chk_box3 input[type="checkbox"] + label {position: relative; padding-left: 32px; font-size: 16px; font-weight: 400; color: #666; cursor: pointer; display: inline-block; vertical-align: top; cursor: pointer;}
+.chk_box3 input[type="checkbox"] + label:before {content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border: 1px solid #ddd; background: transparent; border-radius: 100%; transition: all .1s;}
+.chk_box3 input[type="checkbox"] + label:after {content: ''; position: absolute; left: 7px; top: 50%; width: 10px; height: 13px; border: solid #ddd; border-width: 0 2px 2px 0; transform: rotate(45deg) skewX(10deg); transition: all .1s; margin-top: -9px; border-radius: 1px;}
+.chk_box3 input[type="checkbox"]:checked + label:before {background: var(--admin-color1); border-color: var(--admin-color1);}
+.chk_box3 input[type="checkbox"]:checked + label:after {border-color: #fff;}
+
+
+/* datepicker */
+.react-datepicker-popper{z-index: 10;}
+
+
+
+
+
+
+
+
+
+/* 스위치 토글 */
+.btn_switch {display: inline-block; vertical-align: top;}
+.btn_switch input[type="checkbox"] + label {cursor: pointer; display: inline-block; vertical-align: middle; width: 48px; height: 24px; background: #ececec; text-indent: -9999px; border-radius: 12px; position: relative; transition: all .3s;}
+.btn_switch input[type="checkbox"] + label:before {content: ''; position: absolute; left: 3px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; background: #fff; box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1); z-index: 2; border-radius: 100%; transition: all .3s;}
+.btn_switch input[type="checkbox"]:checked + label {background: var(--admin-color1);}
+.btn_switch input[type="checkbox"]:checked + label:before {left: 27px}
+.btn_switch span {display: inline-block; vertical-align: middle; margin-left: 5px; font-size: 14px; color: #666;}
+
+
+/* 라디오박스 */
+.rdo_box1 {display: inline-block; vertical-align: top; position: relative;}
+.rdo_box1 input[type="radio"] + label {position: relative; padding-left: 28px; font-size: 16px; font-weight: 400; color: #666; cursor: pointer; display: inline-block; vertical-align: top; cursor: pointer;}
+.rdo_box1 input[type="radio"] + label:before {content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 1px solid #ddd; background: transparent; border-radius: 100%; transition: all .3s;}
+.rdo_box1 input[type="radio"] + label:after {content: ''; position: absolute; left: 7px; top: 50%; transform: translateY(-50%); width: 6px; height: 9px; border: solid #9096a4; border-width: 0 2px 2px 0; transform: rotate(45deg); transition: all .1s; margin-top: -6px; border-radius: 1px;}
+.rdo_box1 input[type="radio"]:checked + label:before {background: var(--admin-color1); border-color: var(--admin-color1);}
+.rdo_box1 input[type="radio"]:checked + label:after {border-color: #fff;}
+
+
+/* 파일 */
+.file_txt {position: absolute; left: 0; top: 0; max-width: calc(100% - 90px); padding: 10px 0;}
+.file_txt li {padding: 0 12px; position: relative;}
+.file_txt span {line-height: 28px; display: block; padding: 0 0 0 30px; font-size: 16px; color: #222; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.file_txt .btn_file_remove {position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: url('../images/ic_file_remove.svg') no-repeat 50% 50%/100%; text-indent: -9999px; text-align: left;}
+.file_box1 .input_file {height: 50px; position: relative; border: 1px solid #ddd; border-radius: 5px; background: #fff;}
+.file_box1 .input_file.wrong_input {border-color: var(--admin-color3); transition: all .3s;}
+.file_box1 .input_file.wrong_input:focus {border-color: var(--admin-color1);}
+.file_box1 .input_file input[type="file"] + label {height: 100%; display: block; position: relative; cursor: pointer;}
+.file_box1 .input_file input[type="file"] + label strong {position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: 1px solid #ddd; border-radius: 5px; background: #f8f8f8; line-height: 30px; padding: 0 12px; font-size: 14px; font-weight: 400; color: #666;}
+.file_box1 .input_file input[type="file"] + label b {position: absolute; left: 0; top: 0; line-height: 28px; padding: 10px 90px 10px 40px; width: 100%; display: block; font-size: 16px; font-weight: 400; color: #999; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;}
+.file_box1 .input_file input[type="file"] + label b:before {content: ''; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 25px; height: 24px; background: url('../images/ic_file.svg') no-repeat 50% 50%/100%;}
+.file_box1 {position: relative;}
+.file_box1 .view_file_img {position: relative; margin-top: 12px; display: inline-block; vertical-align: top;}
+.file_box1 .view_file_img .file_img {display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; border: 1px solid #ddd; min-width: 60px; min-height: 60px;}
+.file_box1 .view_file_img .file_img img {max-width: 100%; max-height: 100%;}
+.file_box1 .view_file_img .file_img video{max-width: 100%; }
+.file_box1 .view_file_img .file_img .btn_img_remove {position: absolute; right: 0; top: 0; width: 40px; height: 40px; background: url('../images/ic_file_remove2.svg') no-repeat 50% 50%/100%; text-align: left; text-indent: -9999px;}
+.file_box2 {position: relative;}
+.file_box2 .input_file {padding-top: 40px; position: relative;}
+.file_box2 .input_file input[type="file"] + label {display: block; text-align: center; cursor: pointer;}
+.file_box2 .input_file input[type="file"] + label strong {position: absolute; left: 0; top: 0; border: 1px solid #ddd; border-radius: 5px; background: #f8f8f8; line-height: 30px; padding: 0 12px; font-size: 14px; font-weight: 400; color: #666;}
+.file_box2 .input_file input[type="file"] + label b {line-height: 48px; display: flex; justify-content: center; align-items: center; position: relative; font-size: 16px; font-weight: 400; color: #999; border: 1px solid #ddd; border-radius: 5px;}
+.file_box2 .input_file input[type="file"] + label b:before {content: ''; width: 25px; height: 24px; background: url('../images/ic_file.svg') no-repeat 50% 50%/100%; margin-right: 4px;}
+.file_box2 .file_txt {position: static; max-width: 100%; border: 1px solid #ddd; border-radius: 5px;}
+
+
+/* SELECT TAG */
+.select_type1 {display: inline-block; vertical-align: top; position: relative; min-width: 170px;}
+.select_type1:after {content: ''; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); border: 6px solid #222; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom-color: transparent; margin-top: 3px; z-index: 1;}
+.select_type1 .txt_select {display: block; line-height: 28px; padding: 10px 35px 10px 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 17px;  color: #222;}
+.select_type1 .txt_select span {display: block;}
+.select_type1 select {position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; z-index: 2;}
+.select_type2 {display: inline-block; vertical-align: top; position: relative; width: 100%; background: #fff;}
+.select_type2:after {content: ''; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); border: 6px solid #222; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom-color: transparent; margin-top: 3px; z-index: 1;}
+.select_type2 .txt_select {display: flex; line-height: 28px; padding: 10px 35px 10px 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 17px;  color: #222;}
+.select_type2 .txt_select.none {color: #999;}
+.select_type2 .txt_select span {display: block;}
+.select_type2 .txt_select em {font-size: 12px; font-weight: 700; color: var(--admin-color1); margin-left: 4px;font-style: normal;}
+.select_type2 select {position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; z-index: 2;}
+.select_type3 {display: inline-block; vertical-align: top; position: relative; height: 50px; background: #fff; border-radius: 5px;}
+.select_type3:after {content: ''; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); border: 6px solid #222; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom-color: transparent; margin-top: 3px; z-index: 1;}
+.select_type3 select {display: block; width: 100%; height: 100%; font-size: 16px; font-weight: 400; color: #222; border: 1px solid #ddd; border-radius: 5px; padding: 0 30px 0 15px; background: transparent; position: relative; z-index: 2; transition: all .3s;}
+.select_type3 select:focus {border-color: var(--admin-color1);}
+.select_type3 select:required:invalid {color: #999;}
+.select_type3 select option {color: #222;}
+
+
+/* 폼 */
+.form_inner .form_input {display: flex;}
+.form_inner .form_input h6 {flex: 0 0 140px; line-height: 24px; padding: 13px 0; font-size: 16px; font-weight: 500; color: #222; position: relative; min-height: 50px;}
+.form_inner .form_input h6 i {font-weight: 400; color: var(--admin-color1);}
+.form_inner .form_input h6 b {position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 500; color: #999;}
+.form_inner .form_input h6 em {font-size: 14px; font-weight: 500; color: #999; margin-left: 5px;font-style: normal;}
+.form_inner .form_input .input_wrap {flex: 1; position: relative;}
+.form_inner .form_input .input_wrap2 {display: flex; align-items: center; column-gap: 8px;}
+.form_inner .form_input .input_wrap2 > div {flex: 1 0 0;}
+.form_inner .form_input .input_wrap p {font-size: 14px; color: #999;}
+.form_inner .form_input .input_wrap .btn_right {position: absolute; right: 0; top: 50%; transform: translateY(-50%); padding: 0 14px; line-height: 24px; font-size: 12px; color: #666; border-radius: 5px; border: 1px solid #ddd; background: #f8f8f8;}
+.form_inner .form_input .txt_input {padding-top: 8px; font-size: 14px; font-weight: 500; color: #999; display: block;}
+.form_inner .form_input h5 {font-size: 16px; font-weight: 500; color: #222; padding: 20px 0 10px;}
+.form_inner .form_input h5 i {color: var(--admin-color1);}
+.sign_phone .input_box {margin-top: 12px; position: relative;}
+.sign_phone .input_box:first-of-type {margin-top: 0;}
+.sign_phone .input_box input {padding: 0 150px 0 10px;}
+.sign_phone .input_box .btn_sign {position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 400; color: #666; padding: 0 12px; line-height: 30px; background: #f8f8f8; border-radius: 5px; border: 1px solid #f8f8f8;}
+.sign_phone .input_box .btn_sign.on {border-color: var(--admin-color1); color: var(--admin-color1); background: #fff;}
+.sign_phone .input_box .sign_time {position: absolute; right: 105px; top: 50%; transform: translateY(-50%); font-size: 14px; font-weight: 500; color: var(--admin-color3);}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 페이지 폼 */
+.page_form .form_input {padding-top: 12px;}
+.page_form .form_box {padding-top: 12px;}
+.page_form .form_box:first-of-type {padding-top: 0;}
+.page_form .form_box.form_box2 {border-bottom: 1px solid #ddd; padding-bottom: 12px;}
+
+
+/* 팝업 폼 */
+.form_pop_inner .form_box {display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; margin-top: 10px;}
+.form_pop_inner .form_box:first-of-type {margin-top: 0;}
+.form_pop_inner .form_box.form_border_box {padding-bottom: 24px; border-bottom: 1px solid #ddd;}
+.form_pop_inner .form_box.form_box2 {grid-template-columns: 1fr;}
+.form_pop_inner .form_box.form_box3 {grid-template-columns: 1fr 1fr 1fr;}
+.form_pop_inner .form_box > div {flex: 1 1 0;}
+.form_pop_inner .form_box .form_input_wrap {display: flex; column-gap: 8px;}
+.form_pop_inner .form_box .form_input_wrap > div {flex: 1 1 0;}
+.form_pop_inner .form_input {display: block;}
+
+
+
+
+
+
+
