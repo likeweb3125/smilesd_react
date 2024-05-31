@@ -110,14 +110,12 @@ const Event = () => {
             sWord: ''
         };
         const queryString = qs.stringify(body);
-        axios.get(`${event_ex}`, {
+        axios.get(`${event_ex}?${queryString}`, {
             headers: { Authorization: `Bearer ${user.loginUser.accessToken}` }
         })
         .then((res)=>{
             if(res.status === 200){
                 const data = res.data.data;
-                
-
             }
         })
         .catch((error) => {
@@ -150,15 +148,17 @@ const Event = () => {
                         />
                     </div>
                 </div> */}
+                <div className="flex_end">
+                    <button type="button" className="btn_type2" onClick={exDownBtnClickHandler}>엑셀다운로드</button>
+                </div>
                 <div className="board_section">
                     <div className="scroll_wrap_x">
                         <TableWrap 
                             className="tbl_wrap1 tbl_wrap1_1"
-                            colgroup={["auto","auto","auto","auto","auto"]}
-                            thList={["회사명","직책","이름","날짜","엑셀다운"]}
+                            colgroup={["auto","auto","auto","auto"]}
+                            thList={["회사명","직책","이름","날짜"]}
                             tdList={list}
                             type={"event_list"}
-                            onExDownHandler={exDownBtnClickHandler}
                         />
                     </div>
                     {boardData.event_list && boardData.event_list.length > 0 &&

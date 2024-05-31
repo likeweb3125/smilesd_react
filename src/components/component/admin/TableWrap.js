@@ -365,7 +365,6 @@ const TableWrap = (props) => {
                                             <td>{cont.position}</td>
                                             <td>{cont.name}</td>
                                             <td>{cont.reg_date}</td>
-                                            <td><button type="button" className="btn_type10" onClick={()=>props.onExDownHandler()}>엑셀다운받기</button> </td>
                                         </tr>
                                     );
                                 }
