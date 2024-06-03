@@ -32,31 +32,28 @@ const Login = () => {
 
     //로그인버튼 클릭하기
     const loginBtnClickHandler = () => {
-        loginHandler();
-        // let newError = { ...error };
+        let newError = { ...error };
 
-        // if (email.length === 0) {
-        //     newError.email = true;
-        // }
-        // if (password.length === 0) {
-        //     newError.password = true;
-        // }
+        if (email.length === 0) {
+            newError.email = true;
+        }
+        if (password.length === 0) {
+            newError.password = true;
+        }
 
-        // setError(newError);
+        setError(newError);
 
-        // if (!newError.email && !newError.password) {
-        //     loginHandler();
-        // }
+        if (!newError.email && !newError.password) {
+            loginHandler();
+        }
     };
 
 
     //로그인하기
     const loginHandler = () => {
         const body = {
-            // m_email:email,
-            // m_password:password,
-            m_email:"likeweb@likeweb.co.kr",
-            m_password:"Test!@34",
+            m_email:email,
+            m_password:password,
         };
 
         axios.post(login,body)

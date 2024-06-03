@@ -111,11 +111,29 @@ const Event = () => {
         };
         const queryString = qs.stringify(body);
         axios.get(`${event_ex}?${queryString}`, {
+            responseType: 'blob', // 바이너리 데이터로 응답을 처리합니다
             headers: { Authorization: `Bearer ${user.loginUser.accessToken}` }
         })
         .then((res)=>{
             if(res.status === 200){
-                const data = res.data.data;
+                // 응답으로 받은 데이터를 Blob 객체로 변환합니다
+                // const blob = new Blob([res.data], {
+                //     type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                // });
+
+                // // Blob 객체를 다운로드 링크로 변환합니다
+                // const url = URL.createObjectURL(blob);
+
+                // // 가상의 <a> 태그를 생성하여 다운로드를 트리거합니다
+                // const a = document.createElement('a');
+                // a.href = url;
+                // a.download = 'filename.xlsx'; // 다운로드할 파일 이름을 지정합니다
+                // document.body.appendChild(a);
+                // a.click();
+
+                // // 다운로드 링크를 정리합니다
+                // URL.revokeObjectURL(url);
+                // document.body.removeChild(a);
             }
         })
         .catch((error) => {
