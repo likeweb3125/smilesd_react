@@ -56,18 +56,18 @@ const Header = () => {
         if(menuOn){
             //이벤트
             if(menuOn === "event" || menuOn.includes("event1")) {
-                let orderH = eventHeight;
+                let eventH = eventHeight;
 
                 if(eventList.length > 0){
                     if (menuOn.includes("event1")) {
-                        orderH = orderH + event1Ref.current.scrollHeight;
+                        eventH = eventH + event1Ref.current.scrollHeight;
                         event1Ref.current.style.height = `${event1Ref.current.scrollHeight}px`;
                     }else{
                         event1Ref.current.style.height = "0";
                     }
                 }
 
-                eventRef.current.style.height = `${orderH}px`;
+                eventRef.current.style.height = `${eventH}px`;
             }else{
                 eventRef.current.style.height = "0";
             }
@@ -94,17 +94,26 @@ const Header = () => {
                 <div className="menu_wrap">
                     <nav>
                         <ul className="admin_gnb">
-                            <li className={menuOn && menuOn.includes("order") ? "on" : ""}>
-                                <button type="button" className="btn_menu admin_board" onClick={()=>{setMenuOn("order")}}><span>이벤트</span></button>
+                            <li className={menuOn && menuOn.includes("event") ? "on" : ""}>
+                                <button type="button" className="btn_menu admin_board" onClick={()=>{setMenuOn("event")}}><span>이벤트</span></button>
                                 <ul className="depth2" ref={eventRef}>
                                     {eventList.length > 0 &&
-                                        <li className={`is_depth${menuOn && menuOn.includes("order1") ? " on" : ""}`}>
-                                            <button type="button" className="menu" onClick={()=>{setMenuOn("order1")}}>이벤트</button>
+                                        <li className={`is_depth${menuOn && menuOn.includes("event1") ? " on" : ""}`}>
+                                            <button type="button" className="menu" 
+                                                onClick={()=>{
+                                                    if(menuOn == 'event1'){
+                                                        setMenuOn("event");
+                                                    }
+                                                    if(menuOn == 'event'){
+                                                        setMenuOn("event1");
+                                                    }
+                                                }}
+                                            >이벤트</button>
                                             <ul className="depth3" ref={event1Ref}>
                                                 {eventList.map((cont,i)=>{
                                                     return(
                                                         <li key={i}
-                                                            className={menuOn === `order1_${i+1}` ? "on" : ""} 
+                                                            className={menuOn === `event1_${i+1}` ? "on" : ""} 
                                                         >
                                                             <Link to={`/console/event/event/event1`}>{cont}</Link>
                                                         </li>
