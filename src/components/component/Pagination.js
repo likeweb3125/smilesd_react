@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { pageNo, pageNoChange } from "../../store/etcSlice";
 
 const Pagination = (props) => {
     const dispatch = useDispatch();
     const [pageList, setPageList] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const page = searchParams.get('page');
 
     useEffect(()=>{
         setPageList(pageList);
@@ -21,23 +24,43 @@ const Pagination = (props) => {
     
     //페이징번호 클릭시 리스트리스트 변경하기
     const movePage = (num) => {
-        dispatch(pageNo(num));
-        dispatch(pageNoChange(true));
+        // dispatch(pageNo(num));
+        // dispatch(pageNoChange(true));
+        if(page){
+            searchParams.set('page',num);
+        }else{
+            searchParams.append('page',num);
+        }
+        setSearchParams(searchParams);
     };
 
     //페이징 이전버튼 클릭시
     const prevPaging = () => {
         if(props.currentPage > 1){
-            dispatch(pageNo(props.currentPage - 1));
-            dispatch(pageNoChange(true));
+            // dispatch(pageNo(props.currentPage - 1));
+            // dispatch(pageNoChange(true));
+
+            if(page){
+                searchParams.set('page',props.currentPage - 1);
+            }else{
+                searchParams.append('page',props.currentPage - 1);
+            }
+            setSearchParams(searchParams);
         }
     };
 
     //페이징 다음버튼 클릭시
     const nextPaging = () => {
         if(props.currentPage < props.lastPage){
-            dispatch(pageNo(props.currentPage + 1));
-            dispatch(pageNoChange(true));
+            // dispatch(pageNo(props.currentPage + 1));
+            // dispatch(pageNoChange(true));
+
+            if(page){
+                searchParams.set('page',props.currentPage + 1);
+            }else{
+                searchParams.append('page',props.currentPage + 1);
+            }
+            setSearchParams(searchParams);
         }
     };
 

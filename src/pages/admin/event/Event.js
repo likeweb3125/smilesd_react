@@ -31,6 +31,7 @@ const Event = () => {
     const [fileData, setFileData] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
     const search = searchParams.get('search');
+    const page = searchParams.get('page');
     const [searchTxt, setSearchTxt] = useState('');
 
 
@@ -47,7 +48,7 @@ const Event = () => {
     //주문내역 가져오기
     const getList = () => {
         const body = {
-            getPage: 1,
+            getPage: page ? page : 1,
             listSize: 10,
             sKey: '',
             sWord: ''
@@ -79,12 +80,17 @@ const Event = () => {
 
 
     //주문내역 가져오기
+    // useEffect(()=>{
+    //     getList();
+    //     if(search){
+    //         setSearchTxt(search);
+    //     }
+    // },[search]);
+
+
     useEffect(()=>{
         getList();
-        if(search){
-            setSearchTxt(search);
-        }
-    },[search]);
+    },[page]);
 
 
     //검색하기버튼 클릭시
@@ -147,7 +153,6 @@ const Event = () => {
             setConfirm(true);
         });
     };
-
 
 
     return(<>
