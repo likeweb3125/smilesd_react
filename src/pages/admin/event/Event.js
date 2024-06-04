@@ -178,8 +178,8 @@ const Event = () => {
                     <div className="scroll_wrap_x">
                         <TableWrap 
                             className="tbl_wrap1 tbl_wrap1_1"
-                            colgroup={["auto","auto","auto","auto"]}
-                            thList={["회사명","직책","이름","날짜"]}
+                            colgroup={["auto","auto","auto","auto","100px"]}
+                            thList={["회사명","직책","이름","참석여부","날짜"]}
                             tdList={list}
                             type={"event_list"}
                         />
