@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useDropzone } from 'react-dropzone';
 import axios from "axios";
+import moment from "moment";
 import { enum_api_uri } from "../../../config/enum";
 import * as CF from "../../../config/function";
 import { confirmPop } from "../../../store/popupSlice";
-import { pageNoChange, checkedList } from "../../../store/etcSlice";
 import SelectBox from "../../../components/component/SelectBox";
 import SearchInput from "../../../components/component/SearchInput";
 import TableWrap from "../../../components/component/admin/TableWrap";
@@ -123,23 +122,27 @@ const Event = () => {
         .then((res)=>{
             if(res.status === 200){
                 // 응답으로 받은 데이터를 Blob 객체로 변환합니다
-                // const blob = new Blob([res.data], {
-                //     type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                // });
+                const blob = new Blob([res.data], {
+                    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                });
 
-                // // Blob 객체를 다운로드 링크로 변환합니다
-                // const url = URL.createObjectURL(blob);
+                // Blob 객체를 다운로드 링크로 변환합니다
+                const url = URL.createObjectURL(blob);
 
-                // // 가상의 <a> 태그를 생성하여 다운로드를 트리거합니다
-                // const a = document.createElement('a');
-                // a.href = url;
-                // a.download = 'filename.xlsx'; // 다운로드할 파일 이름을 지정합니다
-                // document.body.appendChild(a);
-                // a.click();
+                // 가상의 <a> 태그를 생성하여 다운로드를 트리거합니다
+                const a = document.createElement('a');
+                a.href = url;
 
-                // // 다운로드 링크를 정리합니다
-                // URL.revokeObjectURL(url);
-                // document.body.removeChild(a);
+                let date = new Date();
+                date = moment(date).format('YYYYMMDD');
+                const fileName = 'event_'+date+'.xlsx'
+                a.download = fileName; // 다운로드할 파일 이름을 지정합니다
+                document.body.appendChild(a);
+                a.click();
+
+                // 다운로드 링크를 정리합니다
+                URL.revokeObjectURL(url);
+                document.body.removeChild(a);
             }
         })
         .catch((error) => {
