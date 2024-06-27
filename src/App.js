@@ -33,7 +33,9 @@ import Policy from './pages/user/Policy';
 
 import AdminLogin from './pages/admin/Login';
 import AdminLayout from './components/layout/admin/Layout';
-import AdminEvent from './pages/admin/event/Event';
+import AdminLonchel from './pages/admin/event/Lonchel';
+import AdminLonchelB2b from './pages/admin/event/LonchelB2b';
+import AdminNutrex from './pages/admin/event/Nutrex';
 
 import AdminMain from './pages/admin/Main';
 import AdminMenuCategory from './pages/admin/MenuCategory';
@@ -104,7 +106,9 @@ function App() {
 
 
                 {/* 이벤트 - 이벤트 */}
-                <Route path="/console/event/event/event1" element={<AdminLayout><AdminEvent/></AdminLayout>} />
+                <Route path="/console/event/event/event1" element={<AdminLayout><AdminLonchel/></AdminLayout>} />
+                <Route path="/console/event/event/event2" element={<AdminLayout><AdminLonchelB2b/></AdminLayout>} />
+                <Route path="/console/event/event/event3" element={<AdminLayout><AdminNutrex/></AdminLayout>} />
             {/* //관리자단---------------------------------------------- */}
 
             </Routes>

@@ -19,7 +19,7 @@ const Header = () => {
     const user = useSelector((state)=>state.user);
     const [menuOn, setMenuOn] = useState(null);
     const [eventHeight, setEventHeight] = useState(0);
-    const [eventList, setEventList] = useState(['뉴트렉스']);
+    const [eventList, setEventList] = useState(['론첼 갤러리','론첼 갤러리_B2B','뉴트렉스']);
     const [confirm, setConfirm] = useState(false);
     const eventRef = useRef();
     const event1Ref = useRef();
@@ -40,7 +40,13 @@ const Header = () => {
 
         //이벤트
         if(path === "/console/event/event/event1"){
-            setMenuOn("event1");
+            setMenuOn("event1_1");
+        }
+        if(path === "/console/event/event/event2"){
+            setMenuOn("event1_2");
+        }
+        if(path === "/console/event/event/event3"){
+            setMenuOn("event1_3");
         }
     },[location.pathname]);
 
@@ -99,23 +105,15 @@ const Header = () => {
                                 <ul className="depth2" ref={eventRef}>
                                     {eventList.length > 0 &&
                                         <li className={`is_depth${menuOn && menuOn.includes("event1") ? " on" : ""}`}>
-                                            <button type="button" className="menu" 
-                                                onClick={()=>{
-                                                    if(menuOn == 'event1'){
-                                                        setMenuOn("event");
-                                                    }
-                                                    if(menuOn == 'event'){
-                                                        setMenuOn("event1");
-                                                    }
-                                                }}
-                                            >이벤트</button>
+                                            <button type="button" className="menu" onClick={()=>setMenuOn('event1')} >이벤트</button>
                                             <ul className="depth3" ref={event1Ref}>
                                                 {eventList.map((cont,i)=>{
+                                                    const idx = i+1;
                                                     return(
                                                         <li key={i}
-                                                            className={menuOn === `event1_${i+1}` ? "on" : ""} 
+                                                            className={menuOn === `event1_${idx}` ? "on" : ""} 
                                                         >
-                                                            <Link to={`/console/event/event/event1`}>{cont}</Link>
+                                                            <Link to={`/console/event/event/event${idx}`}>{cont}</Link>
                                                         </li>
                                                     );
                                                 })}
