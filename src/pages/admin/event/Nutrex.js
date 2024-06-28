@@ -50,7 +50,8 @@ const Nutrex = () => {
             getPage: page ? page : 1,
             listSize: 10,
             sKey: '',
-            sWord: ''
+            sWord: '',
+            event_name: 'nutrex'
         };
         const queryString = qs.stringify(body);
         axios.get(`${event_list}?${queryString}`, {
@@ -112,7 +113,8 @@ const Nutrex = () => {
     const exDownBtnClickHandler = () => {
         const body = {
             sKey: '',
-            sWord: ''
+            sWord: '',
+            event_name: 'nutrex'
         };
         const queryString = qs.stringify(body);
         axios.get(`${event_ex}?${queryString}`, {

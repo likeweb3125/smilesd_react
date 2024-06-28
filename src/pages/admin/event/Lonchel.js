@@ -50,7 +50,8 @@ const Lonchel = () => {
             getPage: page ? page : 1,
             listSize: 10,
             sKey: '',
-            sWord: ''
+            sWord: '',
+            event_name: 'lonchel_gallery'
         };
         const queryString = qs.stringify(body);
         axios.get(`${event_list}?${queryString}`, {
@@ -112,7 +113,8 @@ const Lonchel = () => {
     const exDownBtnClickHandler = () => {
         const body = {
             sKey: '',
-            sWord: ''
+            sWord: '',
+            event_name: 'lonchel_gallery'
         };
         const queryString = qs.stringify(body);
         axios.get(`${event_ex}?${queryString}`, {
