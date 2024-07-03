@@ -364,6 +364,7 @@ const TableWrap = (props) => {
                                             <td>{cont.company}</td>
                                             <td>{cont.position}</td>
                                             <td>{cont.name}</td>
+                                            <td>{cont.attendance_dt == null ? '-' : cont.attendance_dt}</td>
                                             <td>{cont.car == null ? '-' : cont.car}</td>
                                             <td>{cont.flg == null ? '-' : cont.flg}</td>
                                             <td>{cont.reg_date}</td>
