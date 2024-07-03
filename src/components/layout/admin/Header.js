@@ -17,7 +17,7 @@ const Header = () => {
     const board_menu_list = enum_api_uri.board_menu_list;
     const popup = useSelector((state)=>state.popup);
     const user = useSelector((state)=>state.user);
-    const [menuOn, setMenuOn] = useState(null);
+    const [menuOn, setMenuOn] = useState('');
     const [eventHeight, setEventHeight] = useState(0);
     const [eventList, setEventList] = useState(['론첼 갤러리','론첼 갤러리_B2B','뉴트렉스']);
     const [confirm, setConfirm] = useState(false);
@@ -88,6 +88,16 @@ const Header = () => {
     }, [menuOn, eventHeight]);
 
 
+    //대메뉴 클릭시 토글
+    const onMenuClickHandler = (menu) => {
+        if(menuOn.includes(menu)){
+            setMenuOn('');
+        }else{
+            setMenuOn(menu);
+        }
+    };
+
+
 
     return(<>
         <header id="header" className="header">
@@ -101,11 +111,20 @@ const Header = () => {
                     <nav>
                         <ul className="admin_gnb">
                             <li className={menuOn && menuOn.includes("event") ? "on" : ""}>
-                                <button type="button" className="btn_menu admin_board" onClick={()=>{setMenuOn("event")}}><span>이벤트</span></button>
+                                <button type="button" className="btn_menu admin_board" onClick={()=>{onMenuClickHandler("event")}}><span>이벤트</span></button>
                                 <ul className="depth2" ref={eventRef}>
                                     {eventList.length > 0 &&
                                         <li className={`is_depth${menuOn && menuOn.includes("event1") ? " on" : ""}`}>
-                                            <button type="button" className="menu" onClick={()=>setMenuOn('event1')} >이벤트</button>
+                                            <button type="button" className="menu" 
+                                                onClick={()=>{
+                                                    if(menuOn == 'event'){
+                                                        setMenuOn("event1");
+                                                    }
+                                                    if(menuOn == 'event1' || menuOn.includes('event1_')){
+                                                        setMenuOn("event");
+                                                    }
+                                                }}
+                                            >이벤트</button>
                                             <ul className="depth3" ref={event1Ref}>
                                                 {eventList.map((cont,i)=>{
                                                     const idx = i+1;
