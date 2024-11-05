@@ -19,7 +19,7 @@ const Header = () => {
     const user = useSelector((state)=>state.user);
     const [menuOn, setMenuOn] = useState('');
     const [eventHeight, setEventHeight] = useState(0);
-    const [eventList, setEventList] = useState(['론첼 갤러리','론첼 갤러리_B2B','뉴트렉스']);
+    const [eventList, setEventList] = useState(['론첼 갤러리','론첼 갤러리_B2B','뉴트렉스','에디톤 수요일','에디톤 목요일']);
     const [confirm, setConfirm] = useState(false);
     const eventRef = useRef();
     const event1Ref = useRef();
@@ -47,6 +47,12 @@ const Header = () => {
         }
         if(path === "/console/event/event/event3"){
             setMenuOn("event1_3");
+        }
+        if(path === "/console/event/event/event4"){
+            setMenuOn("event1_4");
+        }
+        if(path === "/console/event/event/event5"){
+            setMenuOn("event1_5");
         }
     },[location.pathname]);
 

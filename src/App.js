@@ -36,6 +36,8 @@ import AdminLayout from './components/layout/admin/Layout';
 import AdminLonchel from './pages/admin/event/Lonchel';
 import AdminLonchelB2b from './pages/admin/event/LonchelB2b';
 import AdminNutrex from './pages/admin/event/Nutrex';
+import AdminEditone27 from './pages/admin/event/Editone27';
+import AdminEditone28 from './pages/admin/event/Editone28';
 
 import AdminMain from './pages/admin/Main';
 import AdminMenuCategory from './pages/admin/MenuCategory';
@@ -109,6 +111,8 @@ function App() {
                 <Route path="/console/event/event/event1" element={<AdminLayout><AdminLonchel/></AdminLayout>} />
                 <Route path="/console/event/event/event2" element={<AdminLayout><AdminLonchelB2b/></AdminLayout>} />
                 <Route path="/console/event/event/event3" element={<AdminLayout><AdminNutrex/></AdminLayout>} />
+                <Route path="/console/event/event/event4" element={<AdminLayout><AdminEditone27/></AdminLayout>} />
+                <Route path="/console/event/event/event5" element={<AdminLayout><AdminEditone28/></AdminLayout>} />
             {/* //관리자단---------------------------------------------- */}
 
             </Routes>
